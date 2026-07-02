@@ -169,7 +169,7 @@ export default function AdminEnquiries() {
                                         </td>
                                         <td style={{ padding: '15px' }}>
                                             {enq.resumePath ? (
-                                                <a href={`http://localhost:8081${enq.resumePath}`} target="_blank" rel="noopener noreferrer" className="btn btn-sm" style={{ background: 'rgba(212, 175, 55, 0.1)', color: '#D4AF37', border: '1px solid rgba(212, 175, 55, 0.3)' }}>
+                                                <a href={enq.resumePath} target="_blank" rel="noopener noreferrer" className="btn btn-sm" style={{ background: 'rgba(212, 175, 55, 0.1)', color: '#D4AF37', border: '1px solid rgba(212, 175, 55, 0.3)' }}>
                                                     <i className="fas fa-file-download me-1"></i> View Resume
                                                 </a>
                                             ) : (
