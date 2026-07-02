@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head}"></head>
+<body>
+    
+    <div th:replace="~{fragments/header :: header}"></div>
+
+    <section class="page-header pb-5">
+        <div class="container" data-aos="fade-up">
+            <h1 class="page-title fw-bold">Refund Policy</h1>
+
+        </div>
+    </section>
+
+    <section class="section-padding bg-white pt-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 policy-content text-muted">
+                    <h4 class="text-dark mb-4">1. General Policy</h4>
+                    <p>Due to the nature of software development and IT consulting services, we generally do not offer refunds once work has commenced and milestones are met, unless specified in a separate contract.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div th:replace="~{fragments/footer :: footer}"></div>
+    <div th:replace="~{fragments/scripts :: scripts}"></div>
+
+</body>
+</html>

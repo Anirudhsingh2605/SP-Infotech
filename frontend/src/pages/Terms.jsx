@@ -1,0 +1,40 @@
+import React, { useEffect } from 'react';
+
+export default function Terms() {
+    useEffect(() => {
+        if (window.AOS) window.AOS.init();
+        window.scrollTo(0, 0); // Scroll to top on page load
+    }, []);
+
+    return (
+        <div dangerouslySetInnerHTML={{ __html: `
+    
+    <div ></div>
+
+    <section class="page-header pb-5">
+        <div class="container" data-aos="fade-up">
+            <h1 class="page-title fw-bold">Terms & Conditions</h1>
+
+        </div>
+    </section>
+
+    <section class="section-padding bg-white pt-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 policy-content text-muted">
+                    <h4 class="text-dark mb-4">1. Acceptance of Terms</h4>
+                    <p>By accessing and using this website, you accept and agree to be bound by the terms and provision of this agreement.</p>
+                    
+                    <h4 class="text-dark mb-4 mt-5">2. Intellectual Property</h4>
+                    <p>The Site and its original content, features, and functionality are owned by SP Infotech and are protected by international copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div ></div>
+    <div ></div>
+
+` }} />
+    );
+}

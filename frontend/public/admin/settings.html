@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}">Site Settings</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background-color: #f4f6f9; }
+        .sidebar { min-height: 100vh; background-color: #343a40; color: white; }
+        .sidebar a { color: rgba(255,255,255,0.8); text-decoration: none; padding: 15px; display: block; }
+        .sidebar a:hover { background-color: #495057; color: white; }
+        .sidebar a.active { background-color: #0d6efd; color: white; }
+    </style>
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <div class="sidebar flex-shrink-0 p-0" style="width: 250px;">
+            <div class="p-3 text-center border-bottom border-secondary">
+                <h4 class="m-0">SP Admin</h4>
+            </div>
+            <div class="mt-3">
+                <a th:href="@{/admin}"><i class="fas fa-home me-2"></i> Dashboard</a>
+                <a th:href="@{/admin/enquiries}"><i class="fas fa-envelope me-2"></i> View Enquiries</a>
+                <a th:href="@{/admin/settings}" class="active"><i class="fas fa-cog me-2"></i> Site Settings</a>
+                <a th:href="@{/admin/jobs}"><i class="fas fa-briefcase me-2"></i> Manage Jobs</a>
+                <a th:href="@{/admin/credentials}"><i class="fas fa-user-lock me-2"></i> Credentials</a>
+                <a th:href="@{/}" target="_blank"><i class="fas fa-external-link-alt me-2"></i> View Website</a>
+                
+                <form th:action="@{/logout}" method="post" class="mt-5 px-3">
+                    <button type="submit" class="btn btn-danger w-100"><i class="fas fa-sign-out-alt me-2"></i> Logout</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-grow-1 p-4">
+            <h2 class="mb-4">Global Site Settings</h2>
+            
+            <div th:if="${successMessage}" class="alert alert-success">
+                <span th:text="${successMessage}"></span>
+            </div>
+
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <form th:action="@{/admin/settings}" method="post" th:object="${settings}">
+                        <h5 class="mb-3 border-bottom pb-2">Contact Information</h5>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Contact Email</label>
+                                <input type="email" class="form-control" th:field="*{contactEmail}" placeholder="e.g. info@spinfotech.com">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Contact Phone</label>
+                                <input type="text" class="form-control" th:field="*{contactPhone}" placeholder="e.g. +91 98765 43210">
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label">Office Address</label>
+                            <textarea class="form-control" th:field="*{contactAddress}" rows="2"></textarea>
+                        </div>
+
+                        <h5 class="mb-3 border-bottom pb-2">Social Media Links</h5>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Facebook URL</label>
+                                <input type="url" class="form-control" th:field="*{facebookUrl}">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Twitter URL</label>
+                                <input type="url" class="form-control" th:field="*{twitterUrl}">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">LinkedIn URL</label>
+                                <input type="url" class="form-control" th:field="*{linkedinUrl}">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Instagram URL</label>
+                                <input type="url" class="form-control" th:field="*{instagramUrl}">
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary mt-3 px-4">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
