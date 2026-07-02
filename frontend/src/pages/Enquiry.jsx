@@ -42,7 +42,7 @@ export default function Enquiry() {
         }
 
         try {
-            const response = await fetch('http://localhost:8081/api/enquiries', {
+            const response = await fetch('/api/enquiries', {
                 method: 'POST',
                 body: submitData
             });

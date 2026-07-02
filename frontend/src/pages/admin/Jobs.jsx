@@ -18,7 +18,7 @@ export default function Jobs() {
 
     const fetchJobs = async () => {
         try {
-            const res = await fetch('http://localhost:8081/api/jobs');
+            const res = await fetch('/api/jobs');
             const data = await res.json();
             if (data.success) {
                 setJobs(data.data);
@@ -34,7 +34,7 @@ export default function Jobs() {
         if (!window.confirm("Are you sure you want to delete this job posting?")) return;
         
         try {
-            const res = await fetch(`http://localhost:8081/api/jobs/${id}`, { method: 'DELETE' });
+            const res = await fetch(`/api/jobs/${id}`, { method: 'DELETE' });
             if (res.ok) {
                 setJobs(jobs.filter(job => job.id !== id));
             }
@@ -47,7 +47,7 @@ export default function Jobs() {
         e.preventDefault();
         setSubmitLoading(true);
         try {
-            const res = await fetch('http://localhost:8081/api/jobs', {
+            const res = await fetch('/api/jobs', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)

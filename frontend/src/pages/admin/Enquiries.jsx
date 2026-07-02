@@ -13,7 +13,7 @@ export default function AdminEnquiries() {
 
     const fetchEnquiries = async () => {
         try {
-            const res = await fetch('http://localhost:8081/api/enquiries');
+            const res = await fetch('/api/enquiries');
             const data = await res.json();
             if (data.success) {
                 setEnquiries(data.data);

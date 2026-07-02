@@ -14,7 +14,7 @@ export default function Careers() {
 
     const fetchJobs = async () => {
         try {
-            const res = await fetch('http://localhost:8081/api/jobs');
+            const res = await fetch('/api/jobs');
             const data = await res.json();
             if (data.success) {
                 setJobs(data.data);
